@@ -11,6 +11,21 @@ export default [
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,
+        // Leaflet globals
+        L: 'readonly',
+        // jQuery
+        $: 'readonly',
+        // Application globals
+        marker: 'writable',
+        map: 'writable',
+        dist: 'writable',
+        perkeydist: 'writable',
+        detalisElement: 'readonly',
+        // Third-party libraries
+        osmtogeojson: 'readonly',
+        turf: 'readonly',
+        leafletPip: 'readonly',
+        notifySreenReader: 'readonly',
       },
     },
     rules: {
