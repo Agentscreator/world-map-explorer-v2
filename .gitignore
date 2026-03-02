@@ -31,6 +31,10 @@ Thumbs.db
 coverage/
 nyc_output/
 
+# Test artifacts
+accessibility-report.json
+*.test-results/
+
 # Temporary files and backups
 *.bak
 *.tmp

@@ -2,20 +2,30 @@
   "name": "wme",
   "version": "1.0.0",
   "type": "module",
-  
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:a11y": "node tests/accessibility.test.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "author": "",
   "license": "GPL-3.0-only",
-  "description": "",
+  "description": "An intuitive, accessible, and user-friendly tool to explore and learn about the world map inclusively",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@vitest/ui": "^1.3.1",
+    "axe-core": "^4.8.4",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -23,6 +33,9 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.14.0",
-    "prettier": "^3.4.2"
+    "pa11y": "^8.0.0",
+    "prettier": "^3.4.2",
+    "supertest": "^6.3.4",
+    "vitest": "^1.3.1"
   }
 }

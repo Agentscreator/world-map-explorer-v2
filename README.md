@@ -1,5 +1,8 @@
 # World-Map-Explorer
 
+[![CI](https://github.com/zendalona/WorldMapExplorer/workflows/CI/badge.svg)](https://github.com/zendalona/WorldMapExplorer/actions)
+[![Accessibility](https://github.com/zendalona/WorldMapExplorer/workflows/Accessibility%20Tests/badge.svg)](https://github.com/zendalona/WorldMapExplorer/actions)
+
 World-Map-Explorer is an intuitive, accessible, and user-friendly tool designed to explore and learn about the 
  map inclusively. This project is developed by Zendalona. The goal of the project is to ensure that everyone can access the world map in a playful and educational manner.
 
@@ -9,6 +12,8 @@ World-Map-Explorer is an intuitive, accessible, and user-friendly tool designed 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Development](#development)
+- [Testing](#testing)
 
 ## Introduction
 
@@ -53,7 +58,7 @@ Follow these steps to install and set up the project on your local machine.
 
 Ensure you have the following installed:
 - **Git:** For cloning the repository.
-- **Node.js:** For running the server.
+- **Node.js:** Version 18.x or higher recommended.
 - **Web Browser:** To view the application.
 
 ### Clone the Repository
@@ -71,6 +76,12 @@ Ensure you have the following installed:
     cd WorldMapExplorer
     ```
 
+4. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
 ---
 
 ## Usage
@@ -82,7 +93,7 @@ After that, follow these steps to run the application.
 1. Start the server with the following command:
 
     ```bash
-    node server.js
+    npm start
     ```
 
 2. Once the server is running, the application will be accessible at:
@@ -94,4 +105,72 @@ After that, follow these steps to run the application.
 3. Open this URL in your web browser to view and interact with the application.
 
 
-You’re done! You can see the [detailed user manual](https://map.zendalona.com/src/pages/user-guide/index.html) for more information.
+You're done! You can see the [detailed user manual](https://map.zendalona.com/src/pages/user-guide/index.html) for more information.
+
+---
+
+## Development
+
+For development with auto-reload:
+
+```bash
+npm run dev
+```
+
+### Code Quality
+
+Run linting:
+```bash
+npm run lint
+```
+
+Auto-fix linting issues:
+```bash
+npm run lint:fix
+```
+
+Format code:
+```bash
+npm run format
+```
+
+---
+
+## Testing
+
+### Unit Tests
+
+Run all tests:
+```bash
+npm test
+```
+
+Run tests in watch mode:
+```bash
+npm run test:watch
+```
+
+### Accessibility Tests
+
+Run accessibility tests (requires server to be running):
+```bash
+npm start &
+npm run test:a11y
+```
+
+The project uses axe-core for automated accessibility testing to ensure WCAG compliance.
+
+---
+
+## Contributing
+
+Contributions are welcome! Please ensure:
+- All tests pass before submitting a PR
+- Code follows the existing style (run `npm run lint`)
+- Accessibility standards are maintained
+
+---
+
+## License
+
+GPL-3.0-only
