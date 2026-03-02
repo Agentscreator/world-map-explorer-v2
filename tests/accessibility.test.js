@@ -40,6 +40,14 @@ async function runAccessibilityTests() {
       standard: 'WCAG2AA',
       includeWarnings: true,
       includeNotices: false,
+      chromeLaunchConfig: {
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+        ],
+      },
     });
 
     console.log('\n=== Accessibility Test Results ===\n');
