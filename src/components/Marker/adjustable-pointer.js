@@ -287,11 +287,13 @@ L.adjustablePointer = L.Layer.extend({
       this.secondaryMarker.getLatLng().lat > 85 ||
       this.secondaryMarker.getLatLng().lat < -85
     ) {
+      // Latitude bounds check - no action needed
     }
     if (
       this.secondaryMarker.getLatLng().lng > 180 ||
       this.secondaryMarker.getLatLng().lnt < -180
     ) {
+      // Longitude bounds check - no action needed
     }
     this._updateInfoBox();
     this.flatdist =

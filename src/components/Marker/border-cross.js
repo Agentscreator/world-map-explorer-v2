@@ -75,14 +75,16 @@ export function checkBorderCrossed(distance) {
 //function for fetching and adding polygon to map
 export async function getBorder() {
   if (!this._placeBorderofSelectedLocation) this._borderPoints=null; //clearing previous border points
-  return new Promise(async (resolve, reject) => {
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise(async (resolve, _reject) => {
     if (controller) { //aborting previous fetch request
       controller.abort(); 
     }
     controller = new AbortController();
     const signal = controller.signal;
 
-    try {
+    (async () => {
+      try {
       isMarkerStable = false;
       map.eachLayer((layer) => {
         if (layer instanceof L.GeoJSON && layer.getPane().classList.contains('leaflet-overlay-pane')) {
@@ -146,6 +148,7 @@ export async function getBorder() {
       isMarkerStable = true;
       resolve(presentName);
     }
+    })();
   });
 }
 
