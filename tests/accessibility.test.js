@@ -52,10 +52,13 @@ async function runAccessibilityTests() {
 
     console.log('\n=== Accessibility Test Results ===\n');
     
+    const errors = results.issues.filter(i => i.type === 'error');
+    const warnings = results.issues.filter(i => i.type === 'warning');
+    
     if (results.issues.length === 0) {
       console.log('✓ No accessibility issues found!');
     } else {
-      console.log(`Found ${results.issues.length} accessibility issues:\n`);
+      console.log(`Found ${results.issues.length} accessibility issues (${errors.length} errors, ${warnings.length} warnings):\n`);
       results.issues.forEach((issue, index) => {
         console.log(`${index + 1}. ${issue.type.toUpperCase()}: ${issue.message}`);
         console.log(`   Code: ${issue.code}`);
@@ -65,7 +68,14 @@ async function runAccessibilityTests() {
     }
 
     stopServer();
-    process.exit(results.issues.filter(i => i.type === 'error').length > 0 ? 1 : 0);
+    
+    if (errors.length > 0) {
+      console.log(`\n❌ ${errors.length} accessibility error(s) must be fixed.`);
+      process.exit(1);
+    } else {
+      console.log(`\n✓ No accessibility errors found! (${warnings.length} warnings to review)`);
+      process.exit(0);
+    }
   } catch (error) {
     console.error('Accessibility test failed:', error);
     stopServer();
