@@ -7,7 +7,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:a11y": "node tests/accessibility.test.js",
+    "test:a11y": "node tests/accessibility-check.js",
     "lint": "ESLINT_USE_FLAT_CONFIG=true eslint .",
     "lint:fix": "ESLINT_USE_FLAT_CONFIG=true eslint . --fix",
     "format": "prettier --write",
