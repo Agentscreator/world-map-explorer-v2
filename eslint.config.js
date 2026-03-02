@@ -11,21 +11,22 @@ export default [
         ...globals.browser,
         ...globals.node,
         ...globals.es2021,
-        // Leaflet globals
+        // Global libraries loaded via script tags
         L: 'readonly',
-        // jQuery
         $: 'readonly',
-        // Application globals
+        jQuery: 'readonly',
+        turf: 'readonly',
+        leafletPip: 'readonly',
+        osmtogeojson: 'readonly',
+        _: 'readonly', // Lodash
+        define: 'readonly', // AMD module loader
+        // Global variables used across modules
         marker: 'writable',
         map: 'writable',
         dist: 'writable',
+        detalisElement: 'writable',
+        notifySreenReader: 'writable',
         perkeydist: 'writable',
-        detalisElement: 'readonly',
-        // Third-party libraries
-        osmtogeojson: 'readonly',
-        turf: 'readonly',
-        leafletPip: 'readonly',
-        notifySreenReader: 'readonly',
       },
     },
     rules: {
@@ -41,6 +42,9 @@ export default [
       'build/**',
       'coverage/**',
       '*.min.js',
+      // Ignore third-party library files
+      'src/components/Search/osmtogeojson.js',
+      'src/components/DistanceFinder/Polyline.encoded.js',
     ],
   },
 ];
